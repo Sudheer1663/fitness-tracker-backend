@@ -10,6 +10,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="fitnessgoal")
@@ -31,7 +32,9 @@ public class FitnessGoal {
 	@Enumerated(EnumType.STRING)
 	private Goal goal;
 	
-	private String imageUrl;
+	
+	@Lob
+	private byte[]imageData;
 	
 	public FitnessGoal() {
 		
@@ -69,12 +72,12 @@ public class FitnessGoal {
 		this.cost = cost;
 	}
 
-	public Levels getLeve() {
+	public Levels getLevel() {
 		return level;
 	}
 
-	public void setLeve(Levels leve) {
-		this.level = leve;
+	public void setLevel(Levels level) {
+		this.level = level;
 	}
 
 	public Types getType() {
@@ -93,27 +96,28 @@ public class FitnessGoal {
 		this.goal = goal;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public byte[] getImageData() {
+		return imageData;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setImageData(byte[] imageData) {
+		this.imageData = imageData;
 	}
 
-	public FitnessGoal(Long id, String title, int duration, Double cost, Levels leve, Types type, Goal goal,
-			String imageUrl) {
+	public FitnessGoal(Long id, String title, int duration, Double cost, Levels level, Types type, Goal goal,
+			byte[] imageData) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.duration = duration;
 		this.cost = cost;
-		this.level = leve;
+		this.level = level;
 		this.type = type;
 		this.goal = goal;
-		this.imageUrl = imageUrl;
+		this.imageData = imageData;
 	}
 
+	
 
 	
 }
