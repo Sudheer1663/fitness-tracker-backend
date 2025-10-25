@@ -13,6 +13,7 @@ public class Profile {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private Long userId;
 	private String name;
 	private Integer age;
 	private String gender;
@@ -61,17 +62,6 @@ public class Profile {
 		return height;
 	}
 
-	public Profile(Long id, String name, Integer age, String gender, Double height, Double weight, String goal) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.age = age;
-		this.gender = gender;
-		this.height = height;
-		this.weight = weight;
-		this.goal = goal;
-	}
-
 	public void setHeight(Double height) {
 		this.height = height;
 	}
@@ -91,5 +81,29 @@ public class Profile {
 	public void setGoal(String goal) {
 		this.goal = goal;
 	}
+	
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public Profile(Long id, Long userId, String name, Integer age, String gender, Double height, Double weight,
+			String goal) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.height = height;
+		this.weight = weight;
+		this.goal = goal;
+	}
+	
+	
 
 }
