@@ -60,7 +60,6 @@ public class ProfileController {
 	        if (profileData.containsKey("userId")) {
 	            return ResponseEntity.ok(profileData);
 	        } else {
-	            // Return 404 with a proper JSON response
 	            Map<String, Object> errorResponse = new HashMap<>();
 	            errorResponse.put("error", "User not found");
 	            errorResponse.put("userId", userId);
